@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { AnsweredQuestion } from './components/ResultsList'
 
-function useSafeDispatch(dispatch: React.Dispatch<ActionTypes>) {
+function useSafeDispatch(dispatch: React.Dispatch<ActionTypes | ResolvedAction | AnsweredAction>) {
   const mounted = React.useRef(false)
 
   React.useLayoutEffect(() => {
@@ -12,7 +12,7 @@ function useSafeDispatch(dispatch: React.Dispatch<ActionTypes>) {
   }, [])
 
   return React.useCallback(
-    (...args) => (mounted.current ? dispatch(...args) : void 0),
+    (action) => (mounted.current ? dispatch(action) : void 0),
     [dispatch],
   )
 }
