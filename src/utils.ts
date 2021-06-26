@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { AnsweredQuestion } from './components/ResultsList'
 
+
+//handles unmounting the component while expecting data
 function useSafeDispatch(dispatch: React.Dispatch<ActionTypes | ResolvedAction | AnsweredAction>) {
   const mounted = React.useRef(false)
 
