@@ -52,12 +52,14 @@ code {
   font-size: 3em;
   line-height: 1;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .quiz-start--description{
   font-size: 1.1rem;
   color: #EF885A;
   font-weight: 600;
+  margin-top: 15px;
 }
 
 .question-box {

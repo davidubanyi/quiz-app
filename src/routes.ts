@@ -1,5 +1,5 @@
 import Starter from './pages/QuizStarter'
-import Questions from './pages/Questions'
+import Questions from './pages/Quiz'
 import Results from './pages/QuizEnded'
 
 const routes = [

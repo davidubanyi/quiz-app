@@ -1,6 +1,7 @@
 import * as React from 'react'
+import { AnsweredQuestion } from './components/ResultsList'
 
-function useSafeDispatch(dispatch) {
+function useSafeDispatch(dispatch: React.Dispatch<ActionTypes>) {
   const mounted = React.useRef(false)
 
   React.useLayoutEffect(() => {
@@ -16,67 +17,101 @@ function useSafeDispatch(dispatch) {
   )
 }
 
-function asyncReducer(state, action) {
+
+
+type QuizState = {
+  status: string,
+  results: AnsweredQuestion[],
+  questions: ApiQuestion[],
+  error: null | string
+}
+
+type ActionTypes = {
+  type: 'pending' | 'rejected',
+  error: null | string
+}
+
+type ResolvedAction = {
+  type: 'resolved',
+  data: ApiQuestion[]
+}
+
+type AnsweredAction = {
+  type: 'answered',
+  data: AnsweredQuestion
+}
+
+
+type ApiQuestion = {
+  category: string,
+  correct_answer: string,
+  difficulty: string,
+  incorrect_answers: string[],
+  0: string,
+  question: string,
+  type: string,
+}
+const  asyncReducer  = (state:QuizState, action: ResolvedAction | AnsweredAction | ActionTypes) => {
   switch (action.type) {
     case 'pending': {
-      return {status: 'pending', data: null, error: null}
+      state = { status: 'pending', questions: [], error: null, results: [] }
+      return state
     }
     case 'resolved': {
-      return {status: 'resolved', data: action.data, error: null}
+      state = { status: 'resolved', questions: (action.data), error: null, results: [] }
+      return state
     }
     case 'rejected': {
-      return {status: 'rejected', data: null, error: action.error}
+      return { status: 'rejected', questions: [], error: action.error, results: [] }
+    }
+    case 'answered': {
+      return {...state, results: [...state.results, action.data] }
     }
     default: {
-      throw new Error(`Unhandled action type: ${action.type}`)
+      throw new Error(`Unhandled action type: action does not exist`)
     }
   }
 }
 
-function useAsync(initialState) {
+function useQuiz() {
   const [state, unsafeDispatch] = React.useReducer(asyncReducer, {
     status: 'idle',
-    data: null,
+    questions: [],
     error: null,
-    ...initialState,
+    results: []
   })
 
   const dispatch = useSafeDispatch(unsafeDispatch)
 
-  const {data, error, status} = state
+  const { questions, error, status, results } = state
 
   const run = React.useCallback(
     promise => {
-      dispatch({type: 'pending'})
+      dispatch({ type: 'pending' })
       promise.then(
-        data => {
-          dispatch({type: 'resolved', data})
+        (data:ApiQuestion) => {
+          dispatch({ type: 'resolved', data })
         },
-        error => {
-          dispatch({type: 'rejected', error})
+        (error: string) => {
+          dispatch({ type: 'rejected', error })
         },
       )
     },
     [dispatch],
   )
 
-  const setData = React.useCallback(
-    data => dispatch({type: 'resolved', data}),
-    [dispatch],
-  )
-  const setError = React.useCallback(
-    error => dispatch({type: 'rejected', error}),
-    [dispatch],
-  )
+  const setAnswer = (data:AnsweredQuestion) => {
+    dispatch({ type: 'answered', data })
+  }
 
   return {
-    setData,
-    setError,
     error,
     status,
-    data,
+    questions,
     run,
+    setAnswer,
+    results
   }
 }
 
-export {useAsync}
+export { useQuiz }
