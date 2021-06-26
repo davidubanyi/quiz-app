@@ -8,7 +8,7 @@ import { AnsweredQuestion } from '../components/ResultsList'
 
 const Questions = () => {
     let history = useHistory()
-    const { number } = useParams()
+    const { number } = useParams<{number:string}>()
     const [result, setResult] = useState<AnsweredQuestion[]>([])
     const { data: questions, status, error, run } = useAsync(null)
 
@@ -22,7 +22,7 @@ const Questions = () => {
 
 
     function handleClick(choice:string) {
-        const currentQuestion = questions[number - 1]
+        const currentQuestion = questions[+number - 1]
         setResult((result) => {
            if(currentQuestion.correct_answer === choice){
                return [...result, { correct: true, question: currentQuestion.question }]
@@ -64,7 +64,7 @@ const Questions = () => {
         }
         return <div className="page">
             <ShowQuestion currentQuestion={currentQuestion} />
-            <div className="button-container">
+            <div>
                 <Button handleClick={handleClick} type='True' />
                 <Button handleClick={handleClick} type='False' />
             </div>

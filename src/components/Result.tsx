@@ -15,7 +15,7 @@ const Result = ({question, correct}:{question:string, correct:boolean}) => {
             <div style={{
                 marginRight: '20px'
             }}>{correct ? '+' : '-'}</div>
-            <div dangerouslySetInnerHTML={createMarkup()} />
+            <p dangerouslySetInnerHTML={createMarkup()} />
         </div>
     )
 }
