@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Result = ({question, correct}:{question:string, correct:boolean}) => {
+type ResultProps = {
+    question:string, correct:boolean
+}
+
+const Result:React.FC<ResultProps> = ({question, correct}) => {
     function createMarkup(){
         return {__html: question}
     }

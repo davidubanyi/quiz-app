@@ -1,6 +1,8 @@
 import React from "react"
-
-const ShowQuestion = ({currentQuestion}:{currentQuestion:{question:string, category:string, number:number}}) => {
+type ShowQuestionProps = {
+    currentQuestion:{question:string, category:string, number:number}
+}
+const ShowQuestion:React.FC<ShowQuestionProps> = ({currentQuestion}) => {
     function createMarkup(){
         return {__html: currentQuestion.question}
     }
