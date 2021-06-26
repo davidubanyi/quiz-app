@@ -18,7 +18,7 @@ const Questions = () => {
     }
   }, []);
 
-  function handleClick(choice: string) {
+  function handleChoice(choice: string) {
     const currentQuestion = questions[+number - 1];
       if (currentQuestion.correct_answer === choice) {
         setAnswer({ correct: true, question: currentQuestion.question })
@@ -29,6 +29,7 @@ const Questions = () => {
 
   useEffect(
     () => {
+      //if the page refreshes or changes suddenly
       if (results.length === 0 && +number > 1) {
         history.push("/questions/1");
       }
@@ -60,8 +61,8 @@ const Questions = () => {
       <div className="page">
         <ShowQuestion currentQuestion={currentQuestion} />
         <div>
-          <Button handleClick={handleClick} type="True" />
-          <Button handleClick={handleClick} type="False" />
+          <Button handleClick={handleChoice} type="True" />
+          <Button handleClick={handleChoice} type="False" />
         </div>
       </div>
     );
