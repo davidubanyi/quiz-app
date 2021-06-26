@@ -39,3 +39,5 @@ describe('Quiz App Tests', () => {
     })
     
   })
+
+  export {}
