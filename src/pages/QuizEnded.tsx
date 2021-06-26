@@ -5,10 +5,10 @@ import { AnsweredQuestion } from '../components/ResultsList'
 
 const QuizEnded = ({location}:{location:{
     state:{
-        result: AnsweredQuestion[]
+        results: AnsweredQuestion[]
     }
 }}) => {
-    const answeredQuestions = location.state?.result
+    const answeredQuestions = location.state?.results
     if(answeredQuestions){
     return (
         <div className="page">
