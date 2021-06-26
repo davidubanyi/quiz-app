@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Harmattan&family=Katibeh&display=swap');
+body {
+  margin: 0;
+  font-family: 'Harmattan', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 800px;
+  background: black;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.quiz-starter--page {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  text-align: center;
+  background: wheat;
+}
+
+.quiz-starter--page div{
+  font-size: 1.5em;
+}
+
+.quiz-starter--page a {
+  text-decoration: none;
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.questions--page{
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 800px;
+  text-align: center;
+  max-width: 500px;
+  border: 3px solid black;
+  margin: 50px auto;
+  background: wheat;
+}
+
+.page{
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 10px solid white;
+  margin: 50px auto;
+  background: #F5EFE7;
+  min-height: 800px;
+  text-align: center;
+  max-width: 450px;
+}
+
+.title--h1{
+  font-family: 'Katibeh', cursive;
+  color: #DA5351;
+  font-size: 3.8em;
+  line-height: 1;
+  margin-top: 50px;
+}
+
+.title--h2{
+  font-family: 'Katibeh', cursive;
+  color: #DA5351;
+  font-size: 3em;
+  line-height: 1;
+  margin-top: 20px;
+}
+
+.quiz-start--description{
+  font-size: 1.1rem;
+  color: #EF885A;
+  font-weight: 600;
+}
+
+.question-box {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  overflow-wrap: break-word;
+  line-height: 1.2;
+}
+.button-container{
+  
+}
+
+.results--page{
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  background: wheat;
+}
+
+.results--page a{
+  text-decoration: none;
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 50px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+.begin--button{
+  background: rgb(41, 104, 221);
+  color: white;
+  font-weight: 900;
+  text-transform: uppercase;
+  width: 100%;
+  text-decoration: none;
+  display: block;
+  font-size: 1.2em;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.choice--button {
+  background: white;
+  color: black;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: none;
+  width: 100%;
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.075);
+  cursor: pointer;
+
+}
+
+.choice--button:hover{
+  background-color:#DA5351;
+  color: white;
+}
