@@ -21,3 +21,4 @@ const QuizStarter = () => {
 }
 
 export default QuizStarter
+

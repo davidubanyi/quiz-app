@@ -1,10 +1,6 @@
 import React from 'react'
+import { AnsweredQuestion } from '../interfaces'
 import Result from './Result'
-
-export type AnsweredQuestion = {
-    question: string,
-    correct: boolean
-}
 
 type ResultListProps = {
     answeredQuestions: AnsweredQuestion[]
