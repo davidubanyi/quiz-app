@@ -1,6 +1,6 @@
-import Starter from './pages/QuizStarter'
+import StartQuiz from './pages/StartQuiz'
 import Questions from './pages/Quiz'
-import Results from './pages/QuizEnded'
+import Results from './pages/Results'
 
 const routes = [
     {
@@ -13,7 +13,7 @@ const routes = [
     },
     {
         path: "/",
-        component: Starter
+        component: StartQuiz
     }
 ]
 
