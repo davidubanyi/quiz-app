@@ -9,7 +9,7 @@ import {
 } from "../interfaces"
 import {useSafeDispatch} from "./utils"
 
-const asyncQuizReducer = (
+const quizReducer = (
   state: QuizState,
   action: ResolvedAction | AnsweredAction | ActionTypes
 ) => {
@@ -49,7 +49,7 @@ const asyncQuizReducer = (
  * @returns {error, status, questions, results, setAnswer, run}
  */
 function useAsyncQuiz() {
-  const [state, unsafeDispatch] = useReducer(asyncQuizReducer, {
+  const [state, unsafeDispatch] = useReducer(quizReducer, {
     status: "idle",
     questions: [],
     error: null,

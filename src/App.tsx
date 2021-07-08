@@ -1,7 +1,10 @@
 import React from 'react'
 import {Switch, Route } from 'react-router-dom'
 import routes from './routes';
-
+/**
+ * Handles the page displayed based on the path using react-router
+ * @returns JSX
+ */
 function App() {
   return (
     <Switch>

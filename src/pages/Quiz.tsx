@@ -4,16 +4,19 @@ import {Link} from "react-router-dom"
 import Button from "../components/Button"
 import ShowQuestion from "../components/ShowQuestion"
 
-const Questions:React.FC = () => {
+const Questions: React.FC = () => {
   const {questions, status, error, number, handleChoice} = useQuestion()
 
   if (status === "idle" || status === "pending") {
     return <div className="page">Loading</div>
   }
-  if (error || status === "rejected") {
+  if (status === "rejected") {
     return (
       <div className="page">
-        There was an error, <Link to="/">Please try again</Link>
+        There was an error, {error}
+        <div>
+          <Link to="/">Please try again</Link>
+        </div>
       </div>
     )
   }

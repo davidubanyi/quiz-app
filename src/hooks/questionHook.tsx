@@ -1,6 +1,6 @@
 import {useEffect} from "react"
 import {useParams, useHistory} from "react-router-dom"
-import useAsyncQuiz from "./asyncQuizHook"
+import useAsyncQuiz from "./quizReducerHook"
 import {fetchQuestions} from "../api"
 
 const useQuestion = () => {
