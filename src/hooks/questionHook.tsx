@@ -1,12 +1,12 @@
 import {useEffect} from "react"
 import {useParams, useHistory} from "react-router-dom"
-import useAsyncQuiz from "./quizReducerHook"
+import useQuiz from "./quizReducerHook"
 import {fetchQuestions} from "../api"
 
 const useQuestion = () => {
   let history = useHistory()
   const {number} = useParams<{number: string}>()
-  const {questions, status, error, run, setAnswer, results} = useAsyncQuiz()
+  const {questions, status, error, run, setAnswer, results} = useQuiz()
 
   useEffect(() => {
     if (questions.length > 0) {

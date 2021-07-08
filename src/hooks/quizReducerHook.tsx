@@ -48,7 +48,7 @@ const quizReducer = (
  * Handles the business logic for fetching the questions and updating the results
  * @returns {error, status, questions, results, setAnswer, run}
  */
-function useAsyncQuiz() {
+function useQuiz() {
   const [state, unsafeDispatch] = useReducer(quizReducer, {
     status: "idle",
     questions: [],
@@ -89,4 +89,4 @@ function useAsyncQuiz() {
   }
 }
 
-export default useAsyncQuiz
+export default useQuiz
