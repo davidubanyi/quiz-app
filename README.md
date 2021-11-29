@@ -1,4 +1,4 @@
-This is David Ubanyi's submission for the g2i react developer coding challenge. 
+Fun quiz app with trivia questions. 
 
 
 This project was built with [React](https://reactjs.org/) bootstrapped with [`vitejs`](https://vitejs.dev/) with TypeScript.
