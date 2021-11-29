@@ -13,9 +13,9 @@ I have also included an e2e test using [cypress](https://docs.cypress.io/)
 First,  clone the repository:
 
 ```bash
-git clone https://github.com/davidubanyi/g2i_t.git
+git clone https://github.com/davidubanyi/quiz-app.git
 
-cd g2i_t
+cd quiz-app
 
 npm i
 ```
